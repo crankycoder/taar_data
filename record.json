@@ -1,0 +1,17 @@
+{
+    "client_id": {"S": "some-dummy-client-id"},
+    "bookmark_count": {"N": "5"},
+    "disabled_addon_ids": {"SS": ["disabled1", "disabled2"]},
+    "geo_city": {"S": "Toronto"},
+    "installed_addons": {"SS": ["active1", "active2"]},
+    "locale": {"S": "en-CA"},
+    "os": {"S": "Mac OSX"},
+    "profile_age_in_weeks": {"N": "5"},
+    "profile_date": {"S": "2018-Jan-08"},
+    "submission_age_in_weeks": {"N": "5"},
+    "submission_date": {"S": "2018-Jan-09"},
+    "subsession_length": {"N": "20"},
+    "tab_open_count": {"N": "10"},
+    "total_uri": {"N": "9"},
+    "unique_tlds": {"N": "5"}
+}
