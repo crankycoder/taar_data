@@ -2,11 +2,13 @@
 
 import boto3
 import json
+import zlib
+from boto3.dynamodb.types import Binary as DynamoBinary
 
 conn = boto3.resource('dynamodb', region_name='us-west-2')
-print ("Connection established")
+print("Connection established")
 table = conn.Table('taar_addon_data_20180206')
-print ("Got table")
+print("Got table")
 json_payload = json.dumps({
     "scalar_parent_browser_engagement_total_uri_count": 275,
     "city": "Toronto",
@@ -264,10 +266,15 @@ json_payload = json.dumps({
     "os": "Windows_NT",
     "start_date": "20180115"
 })
-item = {"client_id": "000000000000000000000000000000000000",
-        'json_payload': json_payload}
 
-print ("pre put item")
+byte_data = json_payload.encode('utf8')
+compressed_bytes = zlib.compress(byte_data)
+
+item = {"client_id": "000000000000000000000000000000000000",
+        'json_payload': DynamoBinary(compressed_bytes),
+        }
+
+print("pre put item")
 response = table.put_item(Item=item)
-print ("post put item")
+print("post put item")
 print(response)
