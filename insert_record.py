@@ -261,7 +261,7 @@ json_payload = json.dumps({
     ],
     "subsession_length": 85596,
     "places_bookmarks_count": 35,
-    "client_id": "000000000000000000000000000000000000",
+    "client_id": "67ad0fa5-af6f-1543-aa9f-0c5bf488f6f9",
     "scalar_parent_browser_engagement_unique_domains_count": 24,
     "os": "Windows_NT",
     "start_date": "20180115"
@@ -270,7 +270,7 @@ json_payload = json.dumps({
 byte_data = json_payload.encode('utf8')
 compressed_bytes = zlib.compress(byte_data)
 
-item = {"client_id": "000000000000000000000000000000000000",
+item = {"client_id": "67ad0fa5-af6f-1543-aa9f-0c5bf488f6f9",
         'json_payload': DynamoBinary(compressed_bytes),
         }
 
